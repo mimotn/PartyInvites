@@ -1,0 +1,45 @@
+﻿@using System.Globalization
+@using PartyInvites.Domain
+@model Product
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center">Product details</h2>
+
+<div class="panel panel-body">
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td>@Model.Id</td>
+            <td>@Model.Name</td>
+            <td>@Model.Description</td>
+            <td>@(Model.Price.ToString(CultureInfo.InvariantCulture) + "$")</td>
+        </tr>
+    </table>
+    <br/>
+    <div class="text-center">
+        <div>
+            @foreach (var category in Enum.GetNames(typeof(Category)))
+            {
+                <span class="radio-inline">
+                    @category <input type="checkbox" disabled="disabled" checked="@category.Equals(@Model.Category.ToString())" />
+                </span>
+            }
+        </div>
+        <br/>
+        <div class="btn btn-success">
+            @Html.ActionLink("List all products", "List")
+        </div>
+    </div>
+</div>
+
+
+
+

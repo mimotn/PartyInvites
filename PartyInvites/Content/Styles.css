@@ -1,0 +1,7 @@
+﻿/* styles for errors validation */
+.validation-summary-errors { font-weight: bold;color: red;}
+.input-validation-error { background-color: bisque; border: 1px red solid}
+.field-validation-error {color: #f00;}
+
+/* styles for web pages */
+.btn a { text-decoration: none;color: white; }

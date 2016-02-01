@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <link href="~/Content/bootstrap.css" rel="stylesheet"/>
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet"/>
+    <link href="~/Content/Styles.css" rel="stylesheet"/>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header style="height: 50px;">
+        @Html.Partial("Menu")
+    </header>
+<div class="container">
+    @RenderBody()
+    <hr/>
+    <footer>
+        <p>&copy; @DateTime.Now.Year - ASP.NET MVC Application</p>
+    </footer>
+</div>
+</body>
+</html>

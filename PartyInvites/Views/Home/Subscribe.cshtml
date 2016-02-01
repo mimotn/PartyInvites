@@ -1,0 +1,44 @@
+﻿@using System.Linq.Expressions
+@using PartyInvites.Models
+@model GuestViewModel
+
+@{
+    ViewBag.Title = "Subscribe";
+}
+
+@helper TextBoxFor(string myLabel, Expression<Func<GuestViewModel, string>> myProperty)
+{
+    <div class="form-group">
+        <label class="control-label">@myLabel</label>
+        @Html.TextBoxFor(@myProperty, new {@class = "form-control"})
+    </div>
+}
+
+@helper DropDownListFor(string myLabel, Expression<Func<GuestViewModel, bool>> myProperty, IEnumerable<SelectListItem> myItems, string myMessage)
+{
+    <div class="form-group">
+        <label class="control-label">@myLabel</label>
+        @Html.DropDownListFor(model => model.WillAttend, myItems, myMessage, new { @class = "form-control" })
+    </div>
+}
+
+<h2 class="text-center">Subscribe form</h2>
+
+<div class="panel panel-body panel-success">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+
+        @TextBoxFor("Name", model => model.Name)
+        @TextBoxFor("Email", model => model.Email)
+        @TextBoxFor("Phone", model => model.Phone)
+        @DropDownListFor("Will you attend?", model => model.WillAttend, new[]
+        {
+            new SelectListItem {Text = "Yes, I will be there.", Value = bool.TrueString},
+            new SelectListItem {Text = "No, I can't come.", Value = bool.FalseString}
+        }, "Choose an option")
+        <div class="text-center">
+            <input class="btn btn-success" type="submit" value="Submit subscription"/>
+        </div>
+    }
+</div>

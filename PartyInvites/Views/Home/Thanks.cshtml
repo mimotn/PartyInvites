@@ -1,0 +1,26 @@
+﻿@using PartyInvites.Domain
+@model Guest
+
+@{
+    ViewBag.Title = "Thanks";
+}
+
+@helper ThankYou(Guest guess)
+{
+    <div class="text-center">
+        <h2>Thank you, @guess.Name.</h2>
+        @if (guess.WillAttend)
+        {
+            @: It's great that you are coming!
+        }
+        else
+        {
+            @: Sorry to hear that you can't make it!
+        }
+        <br /> @ViewBag.Sending
+    </div>
+}
+
+<div>
+    @ThankYou(@Model)
+</div>

@@ -1,0 +1,36 @@
+﻿@using System.Globalization
+@using PartyInvites.Models;
+@model ProductListViewModel
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2 class="text-center">Products list</h2>
+
+<div class="panel panel-body">
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Categorie</th>
+        </tr>
+        @foreach (var product in @Model.Products)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@(product.Price.ToString(CultureInfo.InvariantCulture) + "$")</td>
+                <td>@product.Category</td>
+            </tr>
+        }
+    </table>
+</div>
+<h3 class="text-center">Total price is @(Model.TotalPrice + "$")</h3>
+
+
+
+
