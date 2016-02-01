@@ -3,6 +3,7 @@
     public class Guest
     {
         //[Required(ErrorMessage = "Please enter your name")]
+        //[Required(ErrorMessage = "Please enter your name")]
         public string Name { get; set; }
 
         //[Required(ErrorMessage = "Please enter your email")]
